@@ -2,8 +2,8 @@
 
 requirements:
 
-> Python >= 3.9
-> Pip
+* Python >= 3.9
+* Pip
 
 # Configuration
 
@@ -11,8 +11,8 @@ requirements:
 
 Open a terminal navigate to the project directory and execute the following commands to install and create a virtual environment:
 
-1. pip<3> install virtualenv
-2. python3 -m venv env
+- pip<3> install virtualenv
+- python3 -m venv env
 
 Then you need activate you virtual enviroment, if your operating system is based on unix(macos or linux) execute the
 following in your terminal:
