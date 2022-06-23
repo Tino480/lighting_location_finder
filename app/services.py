@@ -1,6 +1,8 @@
 import pandas as pd
 import random
 import matplotlib.pyplot as plt
+import itertools
+import sys
 from operator import itemgetter
 from matplotlib.backends.backend_pdf import PdfPages
 
@@ -12,21 +14,15 @@ def get_lighting_locations(file):
     global light_positions
     global final_light_positions
     free_space, table = get_free_spaces_coords(file)
-    free_space_edit = free_space.copy()
+    free_space_edit = []
     light_positions = []
     final_light_positions = free_space.copy()
-    for i in range(len(free_space) * 100):
-        # if i == 0:
-        #     pass
-        # else:
-        #     end = free_space_edit[0:i]
-        #     start = free_space_edit[i:]
-        #     free_space_edit = start + end
-        random.shuffle(free_space_edit)
+    permutations = list(itertools.permutations(free_space_edit))
+    for i in permutations:
+        free_space_edit = list(i)
         search(free_space_edit)
         if len(light_positions) < len(final_light_positions):
             final_light_positions = light_positions
-        free_space_edit = free_space.copy()
         light_positions = []
 
     for rec in final_light_positions:
